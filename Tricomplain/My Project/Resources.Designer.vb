@@ -63,6 +63,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property _552838925_1143202073978236_7425182187908131052_n() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("552838925_1143202073978236_7425182187908131052_n", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property _CITYPNG_COM_HD_Download_Down_Arrow_White_Symbol_Sign_Icon_PNG___5000x5000() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("[CITYPNG.COM]HD Download Down Arrow White Symbol Sign Icon PNG - 5000x5000", resourceCulture)
@@ -76,6 +86,16 @@ Namespace My.Resources
         Friend ReadOnly Property arrows() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("arrows", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property home_button() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("home-button", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

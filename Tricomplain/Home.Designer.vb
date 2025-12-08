@@ -1,10 +1,10 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class Home
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()>
-    Protected Overrides Sub Dispose(disposing As Boolean)
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
                 components.Dispose()
@@ -20,106 +20,102 @@ Partial Class Home
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()>
+    <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Home))
-        monitor = New Button()
-        Franchise = New Button()
-        Label1 = New Label()
-        Label2 = New Label()
-        Label3 = New Label()
+        MenuStrip1 = New MenuStrip()
+        HomeToolStripMenuItem = New ToolStripMenuItem()
+        ComplaintsToolStripMenuItem = New ToolStripMenuItem()
+        DeletedComaplaintsToolStripMenuItem = New ToolStripMenuItem()
+        logout = New ToolStripMenuItem()
+        Panel = New Panel()
+        AccountsToolStripMenuItem = New ToolStripMenuItem()
+        MenuStrip1.SuspendLayout()
         SuspendLayout()
         ' 
-        ' monitor
+        ' MenuStrip1
         ' 
-        monitor.Anchor = AnchorStyles.Bottom
-        monitor.BackColor = Color.FromArgb(CByte(0), CByte(192), CByte(192))
-        monitor.FlatStyle = FlatStyle.Flat
-        monitor.Font = New Font("Segoe UI Emoji", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        monitor.ForeColor = Color.Black
-        monitor.Location = New Point(547, 562)
-        monitor.Margin = New Padding(3, 4, 3, 4)
-        monitor.Name = "monitor"
-        monitor.Size = New Size(382, 93)
-        monitor.TabIndex = 1
-        monitor.Text = "MONITOR COMPLAINTS"
-        monitor.TextImageRelation = TextImageRelation.TextBeforeImage
-        monitor.UseCompatibleTextRendering = True
-        monitor.UseVisualStyleBackColor = False
+        MenuStrip1.BackColor = Color.SkyBlue
+        MenuStrip1.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        MenuStrip1.GripMargin = New Padding(2, 2, 0, 5)
+        MenuStrip1.Items.AddRange(New ToolStripItem() {HomeToolStripMenuItem, ComplaintsToolStripMenuItem, DeletedComaplaintsToolStripMenuItem, logout, AccountsToolStripMenuItem})
+        MenuStrip1.Location = New Point(0, 0)
+        MenuStrip1.Name = "MenuStrip1"
+        MenuStrip1.Padding = New Padding(4, 2, 0, 2)
+        MenuStrip1.Size = New Size(1044, 24)
+        MenuStrip1.TabIndex = 0
+        MenuStrip1.Text = "MenuStrip1"
         ' 
-        ' Franchise
+        ' HomeToolStripMenuItem
         ' 
-        Franchise.Anchor = AnchorStyles.Bottom
-        Franchise.BackColor = Color.FromArgb(CByte(0), CByte(192), CByte(192))
-        Franchise.FlatStyle = FlatStyle.Flat
-        Franchise.Font = New Font("Segoe UI Emoji", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Franchise.ForeColor = Color.Black
-        Franchise.Location = New Point(127, 562)
-        Franchise.Margin = New Padding(3, 4, 3, 4)
-        Franchise.Name = "Franchise"
-        Franchise.Size = New Size(382, 93)
-        Franchise.TabIndex = 0
-        Franchise.Text = "MANAGE FRANCHISE"
-        Franchise.TextImageRelation = TextImageRelation.TextBeforeImage
-        Franchise.UseCompatibleTextRendering = True
-        Franchise.UseVisualStyleBackColor = False
+        HomeToolStripMenuItem.BackColor = Color.Transparent
+        HomeToolStripMenuItem.Font = New Font("Segoe UI", 9F)
+        HomeToolStripMenuItem.ForeColor = Color.Black
+        HomeToolStripMenuItem.Name = "HomeToolStripMenuItem"
+        HomeToolStripMenuItem.Size = New Size(52, 20)
+        HomeToolStripMenuItem.Text = "Home"
         ' 
-        ' Label1
+        ' ComplaintsToolStripMenuItem
         ' 
-        Label1.Anchor = AnchorStyles.Top
-        Label1.AutoSize = True
-        Label1.Font = New Font("Arial Black", 28.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label1.Location = New Point(180, 126)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(731, 67)
-        Label1.TabIndex = 2
-        Label1.Text = "FRANCHISE MANAGEMENT"
+        ComplaintsToolStripMenuItem.Font = New Font("Segoe UI", 9F)
+        ComplaintsToolStripMenuItem.ForeColor = Color.Black
+        ComplaintsToolStripMenuItem.Name = "ComplaintsToolStripMenuItem"
+        ComplaintsToolStripMenuItem.Size = New Size(80, 20)
+        ComplaintsToolStripMenuItem.Text = "Complaints"
         ' 
-        ' Label2
+        ' DeletedComaplaintsToolStripMenuItem
         ' 
-        Label2.Anchor = AnchorStyles.Top
-        Label2.AutoSize = True
-        Label2.Font = New Font("Arial Black", 28.2F, FontStyle.Bold)
-        Label2.Location = New Point(465, 244)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(142, 67)
-        Label2.TabIndex = 3
-        Label2.Text = "AND"
+        DeletedComaplaintsToolStripMenuItem.Font = New Font("Segoe UI", 9F)
+        DeletedComaplaintsToolStripMenuItem.Name = "DeletedComaplaintsToolStripMenuItem"
+        DeletedComaplaintsToolStripMenuItem.Size = New Size(129, 20)
+        DeletedComaplaintsToolStripMenuItem.Text = "Deleted Comaplaints"
         ' 
-        ' Label3
+        ' logout
         ' 
-        Label3.Anchor = AnchorStyles.Top
-        Label3.AutoSize = True
-        Label3.Font = New Font("Arial Black", 28.2F, FontStyle.Bold)
-        Label3.Location = New Point(162, 360)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(736, 67)
-        Label3.TabIndex = 4
-        Label3.Text = "COMPLAINTS MONITORING"
+        logout.Alignment = ToolStripItemAlignment.Right
+        logout.BackColor = Color.FromArgb(CByte(255), CByte(128), CByte(128))
+        logout.Font = New Font("Segoe UI", 9F)
+        logout.Name = "logout"
+        logout.Size = New Size(62, 20)
+        logout.Text = "Log Out"
+        ' 
+        ' Panel
+        ' 
+        Panel.Location = New Point(0, 27)
+        Panel.Name = "Panel"
+        Panel.Size = New Size(1044, 547)
+        Panel.TabIndex = 1
+        ' 
+        ' AccountsToolStripMenuItem
+        ' 
+        AccountsToolStripMenuItem.Alignment = ToolStripItemAlignment.Right
+        AccountsToolStripMenuItem.BackColor = Color.YellowGreen
+        AccountsToolStripMenuItem.Font = New Font("Segoe UI", 9F)
+        AccountsToolStripMenuItem.Name = "AccountsToolStripMenuItem"
+        AccountsToolStripMenuItem.Size = New Size(69, 20)
+        AccountsToolStripMenuItem.Text = "Accounts"
         ' 
         ' Home
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1058, 789)
-        Controls.Add(Label3)
-        Controls.Add(Label2)
-        Controls.Add(Label1)
-        Controls.Add(monitor)
-        Controls.Add(Franchise)
-        Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        Margin = New Padding(3, 4, 3, 4)
+        BackColor = SystemColors.Window
+        ClientSize = New Size(1044, 573)
+        Controls.Add(Panel)
+        Controls.Add(MenuStrip1)
+        MainMenuStrip = MenuStrip1
         Name = "Home"
-        StartPosition = FormStartPosition.CenterScreen
-        Text = "Home"
+        Text = "Tricomplaints"
+        MenuStrip1.ResumeLayout(False)
+        MenuStrip1.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
-    Friend WithEvents Franchise As Button
-    Friend WithEvents monitor As Button
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
-
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents HomeToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ComplaintsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DeletedComaplaintsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents logout As ToolStripMenuItem
+    Friend WithEvents Panel As Panel
+    Friend WithEvents AccountsToolStripMenuItem As ToolStripMenuItem
 End Class
