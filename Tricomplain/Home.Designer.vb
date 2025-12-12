@@ -27,72 +27,76 @@ Partial Class Home
         ComplaintsToolStripMenuItem = New ToolStripMenuItem()
         DeletedComaplaintsToolStripMenuItem = New ToolStripMenuItem()
         logout = New ToolStripMenuItem()
-        Panel = New Panel()
         AccountsToolStripMenuItem = New ToolStripMenuItem()
+        Panel = New Panel()
         MenuStrip1.SuspendLayout()
         SuspendLayout()
         ' 
         ' MenuStrip1
         ' 
         MenuStrip1.BackColor = Color.SkyBlue
+        MenuStrip1.Dock = DockStyle.Left
         MenuStrip1.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         MenuStrip1.GripMargin = New Padding(2, 2, 0, 5)
         MenuStrip1.Items.AddRange(New ToolStripItem() {HomeToolStripMenuItem, ComplaintsToolStripMenuItem, DeletedComaplaintsToolStripMenuItem, logout, AccountsToolStripMenuItem})
         MenuStrip1.Location = New Point(0, 0)
         MenuStrip1.Name = "MenuStrip1"
         MenuStrip1.Padding = New Padding(4, 2, 0, 2)
-        MenuStrip1.Size = New Size(1044, 24)
+        MenuStrip1.Size = New Size(222, 573)
         MenuStrip1.TabIndex = 0
         MenuStrip1.Text = "MenuStrip1"
         ' 
         ' HomeToolStripMenuItem
         ' 
-        HomeToolStripMenuItem.BackColor = Color.Transparent
-        HomeToolStripMenuItem.Font = New Font("Segoe UI", 9F)
+        HomeToolStripMenuItem.BackColor = Color.PaleGreen
+        HomeToolStripMenuItem.Font = New Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         HomeToolStripMenuItem.ForeColor = Color.Black
         HomeToolStripMenuItem.Name = "HomeToolStripMenuItem"
-        HomeToolStripMenuItem.Size = New Size(52, 20)
+        HomeToolStripMenuItem.Size = New Size(213, 34)
         HomeToolStripMenuItem.Text = "Home"
         ' 
         ' ComplaintsToolStripMenuItem
         ' 
-        ComplaintsToolStripMenuItem.Font = New Font("Segoe UI", 9F)
+        ComplaintsToolStripMenuItem.BackColor = Color.PaleGreen
+        ComplaintsToolStripMenuItem.Font = New Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         ComplaintsToolStripMenuItem.ForeColor = Color.Black
         ComplaintsToolStripMenuItem.Name = "ComplaintsToolStripMenuItem"
-        ComplaintsToolStripMenuItem.Size = New Size(80, 20)
+        ComplaintsToolStripMenuItem.Size = New Size(213, 34)
         ComplaintsToolStripMenuItem.Text = "Complaints"
         ' 
         ' DeletedComaplaintsToolStripMenuItem
         ' 
-        DeletedComaplaintsToolStripMenuItem.Font = New Font("Segoe UI", 9F)
+        DeletedComaplaintsToolStripMenuItem.BackColor = Color.PaleGreen
+        DeletedComaplaintsToolStripMenuItem.Font = New Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         DeletedComaplaintsToolStripMenuItem.Name = "DeletedComaplaintsToolStripMenuItem"
-        DeletedComaplaintsToolStripMenuItem.Size = New Size(129, 20)
+        DeletedComaplaintsToolStripMenuItem.Size = New Size(213, 34)
         DeletedComaplaintsToolStripMenuItem.Text = "Deleted Comaplaints"
         ' 
         ' logout
         ' 
         logout.Alignment = ToolStripItemAlignment.Right
         logout.BackColor = Color.FromArgb(CByte(255), CByte(128), CByte(128))
-        logout.Font = New Font("Segoe UI", 9F)
+        logout.Font = New Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         logout.Name = "logout"
-        logout.Size = New Size(62, 20)
+        logout.Size = New Size(213, 34)
         logout.Text = "Log Out"
-        ' 
-        ' Panel
-        ' 
-        Panel.Location = New Point(0, 27)
-        Panel.Name = "Panel"
-        Panel.Size = New Size(1044, 547)
-        Panel.TabIndex = 1
         ' 
         ' AccountsToolStripMenuItem
         ' 
         AccountsToolStripMenuItem.Alignment = ToolStripItemAlignment.Right
         AccountsToolStripMenuItem.BackColor = Color.YellowGreen
-        AccountsToolStripMenuItem.Font = New Font("Segoe UI", 9F)
+        AccountsToolStripMenuItem.Font = New Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         AccountsToolStripMenuItem.Name = "AccountsToolStripMenuItem"
-        AccountsToolStripMenuItem.Size = New Size(69, 20)
+        AccountsToolStripMenuItem.Size = New Size(156, 34)
         AccountsToolStripMenuItem.Text = "Accounts"
+        ' 
+        ' Panel
+        ' 
+        Panel.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        Panel.Location = New Point(225, 0)
+        Panel.Name = "Panel"
+        Panel.Size = New Size(819, 574)
+        Panel.TabIndex = 1
         ' 
         ' Home
         ' 
@@ -102,9 +106,11 @@ Partial Class Home
         ClientSize = New Size(1044, 573)
         Controls.Add(Panel)
         Controls.Add(MenuStrip1)
+        IsMdiContainer = True
         MainMenuStrip = MenuStrip1
         Name = "Home"
         Text = "Tricomplaints"
+        WindowState = FormWindowState.Maximized
         MenuStrip1.ResumeLayout(False)
         MenuStrip1.PerformLayout()
         ResumeLayout(False)

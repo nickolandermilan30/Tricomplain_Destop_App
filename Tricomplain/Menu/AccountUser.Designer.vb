@@ -38,7 +38,7 @@ Partial Class AccountUser
         Label3.AutoSize = True
         Label3.Font = New Font("Book Antiqua", 21.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label3.ForeColor = Color.Green
-        Label3.Location = New Point(757, 41)
+        Label3.Location = New Point(984, 41)
         Label3.Name = "Label3"
         Label3.Size = New Size(102, 33)
         Label3.TabIndex = 15
@@ -48,18 +48,18 @@ Partial Class AccountUser
         ' 
         driver.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         driver.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        driver.Location = New Point(666, 104)
+        driver.Location = New Point(984, 104)
         driver.Name = "driver"
-        driver.Size = New Size(283, 509)
+        driver.Size = New Size(181, 580)
         driver.TabIndex = 14
         ' 
         ' Commuter
         ' 
         Commuter.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         Commuter.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Commuter.Location = New Point(347, 104)
+        Commuter.Location = New Point(413, 104)
         Commuter.Name = "Commuter"
-        Commuter.Size = New Size(283, 509)
+        Commuter.Size = New Size(565, 580)
         Commuter.TabIndex = 13
         ' 
         ' Label2
@@ -67,7 +67,7 @@ Partial Class AccountUser
         Label2.AutoSize = True
         Label2.Font = New Font("Book Antiqua", 21.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label2.ForeColor = Color.Green
-        Label2.Location = New Point(113, 41)
+        Label2.Location = New Point(33, 41)
         Label2.Name = "Label2"
         Label2.Size = New Size(110, 33)
         Label2.TabIndex = 12
@@ -79,7 +79,7 @@ Partial Class AccountUser
         Admin.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Admin.Location = New Point(33, 104)
         Admin.Name = "Admin"
-        Admin.Size = New Size(283, 509)
+        Admin.Size = New Size(374, 580)
         Admin.TabIndex = 11
         ' 
         ' Label1
@@ -87,7 +87,7 @@ Partial Class AccountUser
         Label1.AutoSize = True
         Label1.Font = New Font("Book Antiqua", 21.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = Color.Green
-        Label1.Location = New Point(402, 41)
+        Label1.Location = New Point(413, 41)
         Label1.Name = "Label1"
         Label1.Size = New Size(165, 33)
         Label1.TabIndex = 10
@@ -97,13 +97,14 @@ Partial Class AccountUser
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(982, 655)
+        ClientSize = New Size(1198, 726)
         Controls.Add(Label3)
         Controls.Add(driver)
         Controls.Add(Commuter)
         Controls.Add(Label2)
         Controls.Add(Admin)
         Controls.Add(Label1)
+        FormBorderStyle = FormBorderStyle.None
         Name = "AccountUser"
         Text = "AccountUser"
         CType(driver, ComponentModel.ISupportInitialize).EndInit()

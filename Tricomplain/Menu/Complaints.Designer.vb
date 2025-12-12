@@ -125,6 +125,7 @@ Partial Class Complaints
         ' 
         ' search
         ' 
+        search.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         search.BackColor = Color.YellowGreen
         search.FlatStyle = FlatStyle.Flat
         search.Font = New Font("Segoe UI Emoji", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
@@ -140,6 +141,7 @@ Partial Class Complaints
         ' 
         ' Label3
         ' 
+        Label3.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         Label3.AutoSize = True
         Label3.Font = New Font("Book Antiqua", 21.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label3.ForeColor = Color.Black
@@ -151,6 +153,7 @@ Partial Class Complaints
         ' 
         ' searchbox
         ' 
+        searchbox.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         searchbox.BorderStyle = BorderStyle.FixedSingle
         searchbox.Font = New Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         searchbox.Location = New Point(599, 73)
@@ -176,6 +179,7 @@ Partial Class Complaints
         ' 
         ' Validcomplainbtn
         ' 
+        Validcomplainbtn.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         Validcomplainbtn.BackColor = Color.ForestGreen
         Validcomplainbtn.FlatStyle = FlatStyle.Flat
         Validcomplainbtn.Font = New Font("Segoe UI Emoji", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
@@ -205,6 +209,7 @@ Partial Class Complaints
         Controls.Add(Label2)
         Controls.Add(Label1)
         Controls.Add(monitor)
+        FormBorderStyle = FormBorderStyle.None
         Name = "Complaints"
         Text = "Complaints"
         monitor.ResumeLayout(False)

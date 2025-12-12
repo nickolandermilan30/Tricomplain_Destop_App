@@ -18,7 +18,7 @@ Public Class HomePage
         Complaints.Columns.Clear()
 
         Complaints.Columns.Add("id", "ID")                     ' 1
-        Complaints.Columns.Add("ticketNo", "Ticket No")        ' 2
+        Complaints.Columns.Add("ticketNo", "Bn No")            ' 2
         Complaints.Columns.Add("date", "Date")                 ' 3
         Complaints.Columns.Add("destination", "Destination")   ' 4
         Complaints.Columns.Add("message", "Message")           ' 5
@@ -27,6 +27,7 @@ Public Class HomePage
         Complaints.Columns.Add("violation", "Violation")       ' 8
 
         Complaints.AllowUserToAddRows = False
+        Complaints.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
     End Sub
 
     ' =======================================
@@ -43,14 +44,11 @@ Public Class HomePage
                 End If
 
                 AllData = JObject.Parse(response) ' store in memory
-
                 DisplayData(AllData) ' show all data
             End Using
-
         Catch ex As Exception
             MessageBox.Show("Error loading complaints: " & ex.Message)
         End Try
-
     End Function
 
     ' =======================================
@@ -64,7 +62,7 @@ Public Class HomePage
 
             Complaints.Rows.Add(
                 item.Key,                           ' ID
-                obj("ticketNo")?.ToString(),        ' Ticket after ID
+                obj("ticketNo")?.ToString(),        ' Ticket No
                 obj("date")?.ToString(),
                 obj("destination")?.ToString(),
                 obj("message")?.ToString(),
@@ -103,8 +101,46 @@ Public Class HomePage
         DisplayData(filtered)
     End Sub
 
+    ' =======================================
+    '    SHOW FULL COMPLAINT ON CLICK
+    ' =======================================
     Private Sub Complaints_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles Complaints.CellContentClick
+        If e.RowIndex < 0 Then Exit Sub  ' ignore header clicks
 
+        Dim selectedRow As DataGridViewRow = Complaints.Rows(e.RowIndex)
+
+        ' Create a new Form to show details
+        Dim detailForm As New Form With {
+            .Text = "Complaint Details",
+            .Size = New Size(700, 600),
+            .StartPosition = FormStartPosition.CenterParent
+        }
+
+        ' Create a multiline TextBox to show all details
+        Dim txtDetails As New TextBox With {
+            .Multiline = True,
+            .ReadOnly = True,
+            .Dock = DockStyle.Fill,
+            .Font = New Font("Segoe UI", 12),
+            .ScrollBars = ScrollBars.Vertical
+        }
+
+        ' Build content
+        Dim content As String = $"ID: {selectedRow.Cells("id").Value}{Environment.NewLine}" &
+                                $"BN No: {selectedRow.Cells("ticketNo").Value}{Environment.NewLine}" &
+                                $"Date: {selectedRow.Cells("date").Value}{Environment.NewLine}" &
+                                $"Destination: {selectedRow.Cells("destination").Value}{Environment.NewLine}" &
+                                $"Message: {selectedRow.Cells("message").Value}{Environment.NewLine}" &
+                                $"Status: {selectedRow.Cells("status").Value}{Environment.NewLine}" &
+                                $"Time: {selectedRow.Cells("time").Value}{Environment.NewLine}" &
+                                $"Violation: {selectedRow.Cells("violation").Value}{Environment.NewLine}" &
+                                $"============================{Environment.NewLine}" &
+                                "Skato / Summary Here"
+
+        txtDetails.Text = content
+        detailForm.Controls.Add(txtDetails)
+
+        detailForm.ShowDialog()
     End Sub
 
 End Class

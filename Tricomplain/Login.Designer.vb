@@ -30,6 +30,7 @@ Partial Class Login
         Label1 = New Label()
         Label2 = New Label()
         PictureBox1 = New PictureBox()
+        forgetpass = New LinkLabel()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -115,11 +116,22 @@ Partial Class Login
         PictureBox1.TabIndex = 6
         PictureBox1.TabStop = False
         ' 
+        ' forgetpass
+        ' 
+        forgetpass.AutoSize = True
+        forgetpass.Location = New Point(495, 332)
+        forgetpass.Name = "forgetpass"
+        forgetpass.Size = New Size(94, 15)
+        forgetpass.TabIndex = 7
+        forgetpass.TabStop = True
+        forgetpass.Text = "Forget password"
+        ' 
         ' Login
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(676, 483)
+        Controls.Add(forgetpass)
         Controls.Add(PictureBox1)
         Controls.Add(Label2)
         Controls.Add(Label1)
@@ -143,5 +155,6 @@ Partial Class Login
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents forgetpass As LinkLabel
 
 End Class

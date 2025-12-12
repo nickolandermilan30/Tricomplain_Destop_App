@@ -75,7 +75,7 @@ Partial Class Deleted
         ' 
         ' History
         ' 
-        History.Anchor = AnchorStyles.Bottom
+        History.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         History.BackColor = Color.DarkGoldenrod
         History.FlatStyle = FlatStyle.Flat
         History.Font = New Font("Segoe UI Emoji", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
@@ -91,7 +91,7 @@ Partial Class Deleted
         ' 
         ' filtertimedate
         ' 
-        filtertimedate.Anchor = AnchorStyles.Bottom
+        filtertimedate.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         filtertimedate.BackColor = Color.Transparent
         filtertimedate.BackgroundImage = CType(resources.GetObject("filtertimedate.BackgroundImage"), Image)
         filtertimedate.BackgroundImageLayout = ImageLayout.Zoom
@@ -108,7 +108,7 @@ Partial Class Deleted
         ' 
         ' filterAtoZ
         ' 
-        filterAtoZ.Anchor = AnchorStyles.Bottom
+        filterAtoZ.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         filterAtoZ.BackColor = Color.Transparent
         filterAtoZ.BackgroundImage = CType(resources.GetObject("filterAtoZ.BackgroundImage"), Image)
         filterAtoZ.BackgroundImageLayout = ImageLayout.Zoom
@@ -125,12 +125,11 @@ Partial Class Deleted
         ' 
         ' search
         ' 
-        search.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
         search.BackColor = Color.YellowGreen
         search.FlatStyle = FlatStyle.Flat
         search.Font = New Font("Segoe UI Emoji", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         search.ForeColor = Color.White
-        search.Location = New Point(412, 112)
+        search.Location = New Point(412, 96)
         search.Name = "search"
         search.Size = New Size(117, 34)
         search.TabIndex = 15
@@ -141,7 +140,7 @@ Partial Class Deleted
         ' 
         ' count
         ' 
-        count.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        count.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         count.AutoSize = True
         count.Font = New Font("Book Antiqua", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         count.ForeColor = Color.Black
@@ -165,6 +164,7 @@ Partial Class Deleted
         Controls.Add(searchbox)
         Controls.Add(Label1)
         Controls.Add(deletedlistcomplaints)
+        FormBorderStyle = FormBorderStyle.None
         Name = "Deleted"
         Text = "Deleted"
         ResumeLayout(False)

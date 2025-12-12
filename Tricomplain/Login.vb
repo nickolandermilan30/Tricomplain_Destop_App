@@ -61,9 +61,7 @@ Public Class Login
             Next
 
             If found Then
-                MessageBox.Show("Login Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-                ' Go to Home form
                 Dim h As New Home()
                 h.Show()
                 Me.Hide()
@@ -77,4 +75,7 @@ Public Class Login
 
     End Sub
 
+    Private Sub forgetpass_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles forgetpass.LinkClicked
+
+    End Sub
 End Class
