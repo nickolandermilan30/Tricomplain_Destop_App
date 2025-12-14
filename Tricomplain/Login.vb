@@ -76,6 +76,8 @@ Public Class Login
     End Sub
 
     Private Sub forgetpass_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles forgetpass.LinkClicked
+        Dim fp As New ChangePassword()
+        fp.Show()
 
     End Sub
 End Class

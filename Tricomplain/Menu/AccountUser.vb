@@ -3,10 +3,13 @@ Imports Newtonsoft.Json.Linq
 
 Public Class AccountUser
 
-    Private firebaseAdmin As String = "https://tricomplain-default-rtdb.firebaseio.com/desktop/register/user/user1.json"
-    Private firebaseUsers As String = "https://tricomplain-default-rtdb.firebaseio.com/Users.json"
+    ' ===== FIREBASE URLS =====
+    Private firebaseAllAdmins As String =
+        "https://tricomplain-default-rtdb.firebaseio.com/desktop/register/user.json"
 
-    Private AdminData As JObject
+    Private firebaseUsers As String =
+        "https://tricomplain-default-rtdb.firebaseio.com/Users.json"
+
     Private UsersData As JObject
 
     Private Async Sub AccountUser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -14,7 +17,6 @@ Public Class AccountUser
         SetupCommuterGrid()
         SetupDriverGrid()
 
-        Await LoadAdmin()
         Await LoadUsers()
     End Sub
 
@@ -23,10 +25,11 @@ Public Class AccountUser
     ' ========================================================
     Private Sub SetupAdminGrid()
         Admin.Columns.Clear()
+        Admin.Columns.Add("username", "Username")
         Admin.Columns.Add("email", "Email")
         Admin.Columns.Add("password", "Password")
-        Admin.Columns.Add("username", "Username")
         Admin.AllowUserToAddRows = False
+        Admin.ReadOnly = True
     End Sub
 
     Private Sub SetupCommuterGrid()
@@ -48,14 +51,15 @@ Public Class AccountUser
     End Sub
 
     ' ========================================================
-    '   LOAD ADMIN
+    '   LOAD ALL ADMIN / REGISTER USERS
     ' ========================================================
-    Private Async Function LoadAdmin() As Task
+    Private Async Function LoadAllRegisterUsers() As Task
         Try
             Using client As New HttpClient()
-                Dim response As String = Await client.GetStringAsync(firebaseAdmin)
+                Dim response As String = Await client.GetStringAsync(firebaseAllAdmins)
 
                 If String.IsNullOrWhiteSpace(response) OrElse response = "null" Then
+                    MessageBox.Show("No users found.")
                     Return
                 End If
 
@@ -63,29 +67,31 @@ Public Class AccountUser
 
                 Admin.Rows.Clear()
 
-                Admin.Rows.Add(
-                    data("email")?.ToString(),
-                    data("password")?.ToString(),
-                    data("username")?.ToString()
-                )
+                For Each user In data
+                    Dim obj = CType(user.Value, JObject)
+
+                    Admin.Rows.Add(
+                        obj("username")?.ToString(),
+                        obj("email")?.ToString(),
+                        obj("password")?.ToString()
+                    )
+                Next
             End Using
 
         Catch ex As Exception
-            MessageBox.Show("Error loading admin: " & ex.Message)
+            MessageBox.Show("Error loading admin users: " & ex.Message)
         End Try
     End Function
 
     ' ========================================================
-    '   LOAD USERS (COMMUTER + DRIVER)
+    '   LOAD COMMUTER + DRIVER
     ' ========================================================
     Private Async Function LoadUsers() As Task
         Try
             Using client As New HttpClient()
                 Dim response As String = Await client.GetStringAsync(firebaseUsers)
 
-                If String.IsNullOrWhiteSpace(response) OrElse response = "null" Then
-                    Return
-                End If
+                If String.IsNullOrWhiteSpace(response) OrElse response = "null" Then Return
 
                 UsersData = JObject.Parse(response)
 
@@ -97,30 +103,12 @@ Public Class AccountUser
                     Dim obj = CType(user.Value, JObject)
                     Dim role = obj("role")?.ToString()
 
-                    If role Is Nothing Then Continue For
-
-                    ' ====== COMMUTER ======
                     If role = "Commuter" Then
-                        Commuter.Rows.Add(
-                            id,
-                            obj("email")?.ToString(),
-                            obj("phone")?.ToString(),
-                            role
-                        )
+                        Commuter.Rows.Add(id, obj("email"), obj("phone"), role)
+                    ElseIf role = "Driver" Then
+                        driver.Rows.Add(id, obj("email"), obj("phone"), role)
                     End If
-
-                    ' ====== DRIVER ======
-                    If role = "Driver" Then
-                        driver.Rows.Add(
-                            id,
-                            obj("email")?.ToString(),
-                            obj("phone")?.ToString(),
-                            role
-                        )
-                    End If
-
                 Next
-
             End Using
 
         Catch ex As Exception
@@ -128,7 +116,11 @@ Public Class AccountUser
         End Try
     End Function
 
-    Private Sub Admin_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles Admin.CellContentClick
+    ' ========================================================
+    '   ADMIN GRID CLICK → LOAD ALL USERS
+    ' ========================================================
+    Private Async Sub Admin_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles Admin.CellContentClick
+        Await LoadAllRegisterUsers()
     End Sub
 
     Private Sub Commuter_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles Commuter.CellContentClick
